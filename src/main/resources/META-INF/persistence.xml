@@ -4,12 +4,13 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
     
-    <persistence-unit name="MyProjectPU" transaction-type="JTA">
-        <jta-data-source>jdbc/__default</jta-data-source>
-        <validation-mode>CALLBACK</validation-mode>
-        <properties>
+    <persistence-unit name="projectsManagementPU">
+    	
+        <jta-data-source>jdbc/projectsManagementDS</jta-data-source>
+        <class>isi.essaady.entities.User</class>
+        <!-- <properties>
             <property name="javax.persistence.schema-generation.database.action" value="create-or-extend-tables"/>
-        </properties>
+        </properties> -->
     </persistence-unit>
     
 </persistence>
