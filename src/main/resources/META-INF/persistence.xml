@@ -8,6 +8,13 @@
     	
         <jta-data-source>jdbc/projectsManagementDS</jta-data-source>
         <class>isi.essaady.entities.User</class>
+        <class>isi.essaady.entities.CollabTaskPlan</class>
+        <class>isi.essaady.entities.CollabTaskPlanPK</class>
+        <class>isi.essaady.entities.Collaborator</class>
+        <class>isi.essaady.entities.Competence</class>
+        <class>isi.essaady.entities.Project</class>
+        <class>isi.essaady.entities.Task</class>
+        <class>isi.essaady.entities.TaskPK</class>
         <!-- <properties>
             <property name="javax.persistence.schema-generation.database.action" value="create-or-extend-tables"/>
         </properties> -->

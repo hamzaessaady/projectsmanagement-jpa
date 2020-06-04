@@ -4,16 +4,20 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 
+/**
+ * The persistent class for the user database table.
+ * 
+ */
 @Entity
-@NamedQuery( 
+@NamedQuery(
 		name="User.selectUsernamePassword",
-		query="SELECT u FROM User u where u.userName=:username and u.password=:password")
+		query="SELECT u FROM User u where u.username=:username and u.password=:password")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int idUser;
 
 	private String password;
 
@@ -21,19 +25,17 @@ public class User implements Serializable {
 
 	private String userGroup;
 
-	private String userName;
+	private String username;
 
 	public User() {
-		super();
-	}
-	
-	/* Default methods*/
-	public int getId() {
-		return this.id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getIdUser() {
+		return this.idUser;
+	}
+
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 
 	public String getPassword() {
@@ -60,12 +62,12 @@ public class User implements Serializable {
 		this.userGroup = userGroup;
 	}
 
-	public String getUserName() {
-		return this.userName;
+	public String getUsername() {
+		return this.username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 }
