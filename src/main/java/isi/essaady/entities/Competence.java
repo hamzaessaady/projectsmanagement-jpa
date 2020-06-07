@@ -3,8 +3,6 @@ package isi.essaady.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import org.hibernate.annotations.CreationTimestamp;
-
 import java.util.Date;
 import java.util.Set;
 
@@ -24,7 +22,6 @@ public class Competence implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_at")
-	@CreationTimestamp
 	private Date createdAt;
 
 	private String name;
@@ -46,10 +43,24 @@ public class Competence implements Serializable {
 			}
 		)
 	private Set<Task> tasks;
-
-	public Competence() {
+	
+	@PrePersist
+	  protected void onCreate() {
+	    createdAt = new Date();
+	  }
+	
+	/*
+	 * Constructors
+	 * */
+	public Competence() {}
+	
+	public Competence(String name) {
+		this.name = name;
 	}
-
+	
+	/*
+	 * Getters & Setters
+	 * */
 	public int getIdComp() {
 		return this.idComp;
 	}

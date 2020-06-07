@@ -3,8 +3,6 @@ package isi.essaady.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import org.hibernate.annotations.CreationTimestamp;
-
 import java.util.Date;
 import java.util.Set;
 
@@ -24,7 +22,6 @@ public class Collaborator implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_at")
-	@CreationTimestamp
 	private Date createdAt;
 
 	private String email;
@@ -51,7 +48,13 @@ public class Collaborator implements Serializable {
 			}
 		)
 	private Set<Competence> competences;
-
+	
+	
+	@PrePersist
+	protected void onCreate() {
+		createdAt = new Date();
+	}
+	
 	public Collaborator() {
 	}
 

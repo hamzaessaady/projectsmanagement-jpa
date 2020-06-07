@@ -3,8 +3,6 @@ package isi.essaady.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import org.hibernate.annotations.CreationTimestamp;
-
 import java.util.Date;
 import java.util.Set;
 
@@ -24,7 +22,6 @@ public class Project implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_at")
-	@CreationTimestamp
 	private Date createdAt;
 
 	private String description;
@@ -43,6 +40,11 @@ public class Project implements Serializable {
 	@OneToMany(mappedBy="project")
 	private Set<Task> tasks;
 
+	@PrePersist
+	protected void onCreate() {
+		createdAt = new Date();
+	}
+	
 	public Project() {
 	}
 
