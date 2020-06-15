@@ -24,6 +24,8 @@ public class Task implements Serializable {
 	private Date createdAt;
 
 	private String description;
+	
+	private int duration;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
@@ -76,6 +78,14 @@ public class Task implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public int getDuration() {
+		return this.duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
 	}
 
 	public Date getEndDate() {
